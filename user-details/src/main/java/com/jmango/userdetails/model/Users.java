@@ -1,9 +1,9 @@
 package com.jmango.userdetails.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Setter
 @Getter
@@ -15,4 +15,17 @@ public class Users {
     private String email;
     private String phoneNumber;
     private String address;
+
+    @Setter(AccessLevel.NONE)
+    private List<Employee> employees = new ArrayList<>();
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = (employees == null) ? new ArrayList<>() : new ArrayList<>(employees);
+
+    }
+
+    public List<Employee> getEmployees() {
+        return (employees == null) ? new ArrayList<>() : new ArrayList<>(employees);
+    }
+
 }

@@ -12,8 +12,15 @@ import java.util.List;
 /** khi bị lỗi feign proxy sẽ tự động gọi vi da duoc khai bao trong @FeignClient và class nay trien khai interface nay */
 public class StaticService implements IStaticService {
     @Override
-    public List<UserResponse> getUser() {
+    public List<UserResponse> getUser(String key) {
         log.error("Static service is slow");
         return null;
     }
+
+    @Override
+    public UserResponse saveUser(String key, UserResponse user) {
+        log.error("Static service is slow");
+        return null;
+    }
+
 }
